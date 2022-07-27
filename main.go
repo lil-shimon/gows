@@ -11,9 +11,9 @@ import (
 )
 
 type NVData struct {
-	Noise       float64
-	Vibration   float64
-	MeasureDate time.Time
+	Noise       float64   `json:"noise"`
+	Vibration   float64   `json:"vibration"`
+	MeasureDate time.Time `json:"measureDate"`
 }
 
 func handleServer(c echo.Context) error {
