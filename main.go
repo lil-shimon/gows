@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-type NVDate struct {
+type NVData struct {
 	Noise       float64
 	Vibration   float64
 	MeasureDate time.Time
@@ -49,7 +49,7 @@ func sendDataEachSecond(c echo.Context) error {
 	websocket.Handler(func(ws *websocket.Conn) {
 		defer ws.Close()
 		for range time.Tick(1000 * time.Millisecond) {
-			var nv NVDate
+			var nv NVData
 			nv.Noise = rand.Float64()
 			nv.Vibration = rand.Float64()
 			nv.MeasureDate = time.Now()
